@@ -10,7 +10,7 @@
   "main": "server/server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YourView"
+    "url": "git+https://github.com/porject3test"
   },
   "homepage": "TBD",
   "scripts": {

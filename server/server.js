@@ -32,7 +32,7 @@ app.use(routes);
 
 app.get('/api/images', async (req, res) => {
   const { resources } = await cloudinary.search
-    .expression('folder:YourView')
+    .expression('folder:dev-sets')
     .sort_by('public_id', 'desc')
     .max_results(30)
     .execute();
@@ -45,7 +45,7 @@ app.post('/api/upload', async (req, res) => {
   try {
     const fileStr = req.body.data;
     const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'yourview',
+      upload_preset: 'dev-sets',
     });
     console.log(uploadResponse);
     res.json({ msg: 'yaya' });
@@ -79,7 +79,7 @@ if (process.env.NODE_ENV === 'production') {
 // Dynamically force schema refresh only for 'test'
 const FORCE_SCHEMA = process.env.NODE_ENV === 'test';
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/yourview', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
